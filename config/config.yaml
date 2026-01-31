@@ -32,28 +32,23 @@ app:
 platforms:
   enabled: true                         # 是否启用热榜平台抓取
   sources:
-    - id: "toutiao"
-      name: "今日头条"
-    - id: "baidu"
-      name: "百度热搜"
-    - id: "wallstreetcn-hot"
-      name: "华尔街见闻"
-    - id: "thepaper"
-      name: "澎湃新闻"
-    - id: "bilibili-hot-search"
-      name: "bilibili 热搜"
-    - id: "cls-hot"
-      name: "财联社热门"
-    - id: "ifeng"
-      name: "凤凰网"
-    - id: "tieba"
-      name: "贴吧"
-    - id: "weibo"
-      name: "微博"
-    - id: "douyin"
-      name: "抖音"
-    - id: "zhihu"
-      name: "知乎"
+    - id: "github"
+      name: "Github"
+    - id: "v2ex"
+      name: "V2EX"
+    - id: "ithome"
+      name: "IT之家"
+    - id: "juejin"
+      name: "稀土掘金"
+    - id: "freebuf"
+      name: "Freebuf"
+    - id: "sspai"
+      name: "少数派"
+    - id: "tencent"
+      name: "腾讯新闻"
+    - id: "cankaoxiaoxi"
+      name: "参考消息"
+
 
 
 
@@ -132,8 +127,8 @@ rss:
 #    • 适用场景：避免重复信息干扰
 # ===============================================================
 report:
-  mode: "current"                     # 可选: daily | current | incremental
-  display_mode: "keyword"             # 分组维度: keyword | platform
+  mode: "daily"                     # 可选: daily | current | incremental
+  display_mode: "platform"             # 分组维度: keyword | platform
                                       # keyword: 按关键词分组显示（默认）
                                       # platform: 按平台/来源分组显示
 
@@ -194,7 +189,7 @@ display:
   standalone:
     platforms: []                     # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
     rss_feeds: []                     # RSS 源 ID 列表（如 ["hacker-news"]）
-    max_items: 20                     # 每个源最多展示条数（0=不限制）
+    max_items: 50                     # 每个源最多展示条数（0=不限制）
 
 
 # ===============================================================
