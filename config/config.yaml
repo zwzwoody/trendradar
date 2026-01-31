@@ -160,20 +160,20 @@ display:
   #   1. 在此列表中
   #   2. 下方 regions 中对应开关为 true
   region_order:
+    - ai_analysis                       # 5️⃣ AI 分析区域
+    - rss                       # 3️⃣ RSS 订阅区域
     - new_items                       # 1️⃣ 新增热点区域
     - hotlist                       # 2️⃣ 热榜区域（关键词匹配）
-    - rss                       # 3️⃣ RSS 订阅区域
     - standalone                       # 4️⃣ 独立展示区
-    - ai_analysis                       # 5️⃣ AI 分析区域
   regions:
-    new_items: false # 新增热点区域（含热榜新增 + RSS 新增）
-    hotlist: false # 热榜区域（关键词匹配的热点新闻）
-    rss: false # RSS 订阅区域
+    ai_analysis: true # AI 分析区域
+    rss: true # RSS 订阅区域
+    new_items: true # 新增热点区域（含热榜新增 + RSS 新增）
+    hotlist: true # 热榜区域（关键词匹配的热点新闻）
     standalone: false # 独立展示区（完整热榜/RSS，不受关键词过滤）
-    ai_analysis: false # AI 分析区域
   standalone:
-    platforms: [] # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
-    rss_feeds: [] # RSS 源 ID 列表（如 ["hacker-news"]）
+    platforms: ["github","v2ex","ithome","juejin","freebuf"] # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
+    rss_feeds: ["ruanyifeng"] # RSS 源 ID 列表（如 ["hacker-news"]）
     max_items: 50                     # 每个源最多展示条数（0=不限制）
 
 
@@ -380,7 +380,7 @@ ai_analysis:
   #   执行时间不稳定，时间范围建议至少留足 2 小时
   # 💡 想要精准定时？建议使用 Docker 部署在个人服务器上
   analysis_window:
-    enabled: false                  # 是否启用 AI 分析时间窗口控制
+    enabled: true                  # 是否启用 AI 分析时间窗口控制
     start: "12:00"                  # 开始时间（使用 app.timezone 配置的时区）
     end: "21:00"                    # 结束时间（使用 app.timezone 配置的时区）
     once_per_day: false             # true=窗口内只分析一次，false=窗口内每次执行都分析
