@@ -168,13 +168,13 @@ display:
   regions:
     ai_analysis: true # AI 分析区域
     rss: true # RSS 订阅区域
-    new_items: true # 新增热点区域（含热榜新增 + RSS 新增）
-    hotlist: true # 热榜区域（关键词匹配的热点新闻）
-    standalone: false # 独立展示区（完整热榜/RSS，不受关键词过滤）
+    new_items: false # 新增热点区域（含热榜新增 + RSS 新增）
+    hotlist: false # 热榜区域（关键词匹配的热点新闻）
+    standalone: true # 独立展示区（完整热榜/RSS，不受关键词过滤）
   standalone:
-    platforms: ["github","v2ex","ithome","juejin","freebuf"] # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
+    platforms: ["github","ithome","freebuf","tencent","cankaoxiaoxi","sspai","juejin","v2ex"] # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
     rss_feeds: ["ruanyifeng"] # RSS 源 ID 列表（如 ["hacker-news"]）
-    max_items: 50                     # 每个源最多展示条数（0=不限制）
+    max_items: 30                     # 每个源最多展示条数（0=不限制）
 
 
 # ===============================================================
@@ -418,7 +418,7 @@ ai_analysis:
                                       # GitHub Action 部署默认推送约 20 次（每小时推送一次）， 约 0.1 元/天
                                       # Docker 部署默认推送 48 次(每半小时推送一次)， 约 0.2 元/天
 
-  include_rss: false                 # 是否包含 RSS 内容进行分析
+  include_rss: true                 # 是否包含 RSS 内容进行分析
 
   include_rank_timeline: true      # 是否传递完整排名时间线
                                     # false: 使用简化格式（排名范围+时间范围+出现次数）
