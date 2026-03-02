@@ -45,6 +45,7 @@ def split_content_into_batches(
     ai_stats: Optional[Dict] = None,
     report_type: str = "热点分析报告",
     show_new_section: bool = True,
+    report_url: str = "",
 ) -> List[str]:
     """分批处理消息内容，确保词组标题+至少第一条新闻的完整性（支持热榜+RSS合并+AI分析+独立展示区）
 
@@ -173,26 +174,38 @@ def split_content_into_batches(
     base_footer = ""
     if format_type in ("wework", "bark"):
         base_footer = f"\n\n\n> 更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}"
+        if report_url:
+            base_footer += f"\n> [查看完整报告]({report_url})"
         if update_info:
             base_footer += f"\n> TrendRadar 发现新版本 **{update_info['remote_version']}**，当前 **{update_info['current_version']}**"
     elif format_type == "telegram":
         base_footer = f"\n\n更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}"
+        if report_url:
+            base_footer += f"\n查看完整报告：{report_url}"
         if update_info:
             base_footer += f"\nTrendRadar 发现新版本 {update_info['remote_version']}，当前 {update_info['current_version']}"
     elif format_type == "ntfy":
         base_footer = f"\n\n> 更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}"
+        if report_url:
+            base_footer += f"\n> [查看完整报告]({report_url})"
         if update_info:
             base_footer += f"\n> TrendRadar 发现新版本 **{update_info['remote_version']}**，当前 **{update_info['current_version']}**"
     elif format_type == "feishu":
         base_footer = f"\n\n<font color='grey'>更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}</font>"
+        if report_url:
+            base_footer += f"\n[查看完整报告]({report_url})"
         if update_info:
             base_footer += f"\n<font color='grey'>TrendRadar 发现新版本 {update_info['remote_version']}，当前 {update_info['current_version']}</font>"
     elif format_type == "dingtalk":
         base_footer = f"\n\n> 更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}"
+        if report_url:
+            base_footer += f"\n> [查看完整报告]({report_url})"
         if update_info:
             base_footer += f"\n> TrendRadar 发现新版本 **{update_info['remote_version']}**，当前 **{update_info['current_version']}**"
     elif format_type == "slack":
         base_footer = f"\n\n_更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}_"
+        if report_url:
+            base_footer += f"\n<{report_url}|查看完整报告>"
         if update_info:
             base_footer += f"\n_TrendRadar 发现新版本 *{update_info['remote_version']}*，当前 *{update_info['current_version']}_"
 

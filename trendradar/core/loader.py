@@ -59,6 +59,7 @@ def _load_app_config(config_data: Dict) -> Dict:
         "SHOW_VERSION_UPDATE": app_config.get("show_version_update", True),
         "TIMEZONE": _get_env_str("TIMEZONE") or app_config.get("timezone", "Asia/Shanghai"),
         "DEBUG": _get_env_bool("DEBUG") if _get_env_bool("DEBUG") is not None else advanced.get("debug", False),
+        "REPORT_URL": _get_env_str("REPORT_URL") or app_config.get("report_url", ""),
     }
 
 
