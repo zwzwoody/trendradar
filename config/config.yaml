@@ -23,7 +23,7 @@ app:
   # Web 报告链接（可选）
   # 配置后，通知消息底部会附带"查看完整报告"链接
   # 格式：http://你的服务器IP:端口/html/latest/daily.html
-  report_url: "http://47.84.101.180/:8080/html/latest/daily.html"
+  report_url: "http://47.84.101.180:8080/html/latest/daily.html"
 
 
 # ===============================================================
