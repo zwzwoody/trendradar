@@ -1,0 +1,7 @@
+.idea/
+.vscode/
+.cursorrules
+__pycache__/
+.cursor/
+
+output/
