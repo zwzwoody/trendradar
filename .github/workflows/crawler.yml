@@ -167,3 +167,21 @@ jobs:
           S3_REGION: ${{ secrets.S3_REGION }}
           GITHUB_ACTIONS: true
         run: python -m trendradar
+
+      - name: Trigger blog sync
+        if: success()
+        run: |
+          echo "🚀 Triggering blog news sync..."
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.BLOG_REPO_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/zwzwoody/moraya.github.io/dispatches \
+            -d '{
+              "event_type": "sync-news",
+              "client_payload": {
+                "date": "'$(date +%Y-%m-%d)'",
+                "source": "trendradar",
+                "commit": "${{ github.sha }}"
+              }
+            }'
+          echo "✅ Blog sync triggered successfully"
