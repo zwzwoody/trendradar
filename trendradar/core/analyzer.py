@@ -12,6 +12,9 @@ from typing import Dict, List, Tuple, Optional, Callable
 
 from trendradar.core.frequency import matches_word_groups, _word_matches
 
+# 每个消息源每日推送上限：保留最热前 N 条（按权重排序后截断，0 表示不限制）
+PLATFORM_DAILY_TOP_LIMIT = 20
+
 
 def calculate_news_weight(
     title_data: Dict,
@@ -759,6 +762,10 @@ def convert_keyword_stats_to_platform_stats(
                 -x["count"],
             ),
         )
+
+        # 每个平台推送上限：按权重排序后，保留最热前 N 条
+        if PLATFORM_DAILY_TOP_LIMIT > 0:
+            platform_map[source_name] = platform_map[source_name][:PLATFORM_DAILY_TOP_LIMIT]
 
     # 4. 构建平台统计结果
     platform_stats = []

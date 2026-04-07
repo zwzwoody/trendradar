@@ -228,7 +228,7 @@ notification:
       webhook_url: ""                 # 钉钉机器人 webhook URL
 
     wework:
-      webhook_url: "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=4cde0d22-ab6e-404a-8b08-6c88ae9363d5"                 # 企业微信机器人 webhook URL
+      webhook_url: "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=5c0ae871-ee16-4300-ad38-b74746ab3008"                 # 企业微信机器人 webhook URL
       msg_type: "markdown"            # 消息类型：markdown(群机器人) | text(个人微信应用)
 
     telegram:
