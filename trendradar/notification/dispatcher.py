@@ -164,7 +164,14 @@ class NotificationDispatcher:
     def _build_report_url(self, html_file_path: Optional[str]) -> str:
         """根据 HTML 快照路径构建报告链接（优先使用配置中的 REPORT_URL 作为基准）"""
         report_url = self.config.get("REPORT_URL", "")
-        if not report_url or not html_file_path:
+        if not report_url:
+            return report_url
+
+        # 如果 URL 以 / 结尾，视为固定页面，直接返回
+        if report_url.endswith("/"):
+            return report_url
+
+        if not html_file_path:
             return report_url
 
         html_path = Path(html_file_path)
