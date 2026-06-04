@@ -171,7 +171,7 @@ display:
     - new_items                       # 1️⃣ 新增热点区域
     - standalone                       # 4️⃣ 独立展示区
   regions:
-    ai_analysis: true # AI 分析区域
+    ai_analysis: false # AI 分析区域
     rss: true # RSS 订阅区域
     hotlist: true # 热榜区域（关键词匹配的热点新闻）
     new_items: false # 新增热点区域（含热榜新增 + RSS 新增）
@@ -374,7 +374,7 @@ ai:
 # 模型配置见上方 ai 配置段
 # ===============================================================
 ai_analysis:
-  enabled: true                     # 是否启用 AI 分析
+  enabled: false                     # 是否启用 AI 分析
 
   # 🕐 AI 分析时间窗口控制（可选功能）
   # 用途：限制 AI 分析的时间范围，避免非必要时段消耗 API 额度
